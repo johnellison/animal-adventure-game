@@ -39,7 +39,7 @@
       "x": 75,
       "y": 70
     },
-    "image": "images/animals/great-white-shark.svg",
+    "image": "images/animals/great-white-shark.jpg",
     "stats": {
       "size": 9,
       "speed": 9,
@@ -68,7 +68,7 @@
       "x": 70,
       "y": 48
     },
-    "image": "images/animals/eastern-brown-snake.svg",
+    "image": "images/animals/eastern-brown-snake.jpg",
     "stats": {
       "size": 4,
       "speed": 8,
@@ -97,7 +97,7 @@
       "x": 72,
       "y": 55
     },
-    "image": "images/animals/sydney-funnel-web.svg",
+    "image": "images/animals/sydney-funnel-web.jpg",
     "stats": {
       "size": 2,
       "speed": 4,
@@ -126,7 +126,7 @@
       "x": 35,
       "y": 22
     },
-    "image": "images/animals/box-jellyfish.svg",
+    "image": "images/animals/box-jellyfish.jpg",
     "stats": {
       "size": 3,
       "speed": 5,
@@ -184,7 +184,7 @@
       "x": 45,
       "y": 45
     },
-    "image": "images/animals/red-kangaroo.svg",
+    "image": "images/animals/red-kangaroo.jpg",
     "stats": {
       "size": 7,
       "speed": 8,
@@ -213,7 +213,7 @@
       "x": 42,
       "y": 18
     },
-    "image": "images/animals/cassowary.svg",
+    "image": "images/animals/cassowary.jpg",
     "stats": {
       "size": 6,
       "speed": 7,
@@ -242,7 +242,7 @@
       "x": 68,
       "y": 62
     },
-    "image": "images/animals/platypus.svg",
+    "image": "images/animals/platypus.jpg",
     "stats": {
       "size": 2,
       "speed": 4,
@@ -271,7 +271,7 @@
       "x": 52,
       "y": 35
     },
-    "image": "images/animals/dingo.svg",
+    "image": "images/animals/dingo.jpg",
     "stats": {
       "size": 5,
       "speed": 7,
@@ -300,7 +300,7 @@
       "x": 55,
       "y": 28
     },
-    "image": "images/animals/muttaburrasaurus.svg",
+    "image": "images/animals/muttaburrasaurus.jpg",
     "stats": {
       "size": 8,
       "speed": 5,
@@ -329,7 +329,7 @@
       "x": 48,
       "y": 38
     },
-    "image": "images/animals/australovenator.svg",
+    "image": "images/animals/australovenator.jpg",
     "stats": {
       "size": 7,
       "speed": 9,
@@ -416,7 +416,7 @@
       "x": 60,
       "y": 68
     },
-    "image": "images/animals/leaellynasaura.svg",
+    "image": "images/animals/leaellynasaura.jpg",
     "stats": {
       "size": 2,
       "speed": 7,
@@ -445,7 +445,7 @@
       "x": 25,
       "y": 45
     },
-    "image": "images/animals/kronosaurus.svg",
+    "image": "images/animals/kronosaurus.jpg",
     "stats": {
       "size": 10,
       "speed": 8,
