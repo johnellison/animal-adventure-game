@@ -35,6 +35,9 @@ const App = (function() {
             // Setup collect button handler
             setupCollectHandler();
 
+            // Setup filter button handlers
+            setupFilterHandlers();
+
             console.log('🎉 App initialized successfully!');
         } catch (error) {
             console.error('Error initializing app:', error);
@@ -69,6 +72,26 @@ const App = (function() {
                 Cards.setCollected(true);
                 GameMap.updateMarkerState(animal.id, true);
             }
+        });
+    }
+
+    /**
+     * Setup filter button event handlers
+     */
+    function setupFilterHandlers() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        if (!filterButtons.length) return;
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active state
+                filterButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
+                button.classList.add('filter-btn--active');
+
+                // Filter markers
+                const filter = button.dataset.filter;
+                GameMap.filterMarkers(filter);
+            });
         });
     }
 

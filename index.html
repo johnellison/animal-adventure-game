@@ -29,6 +29,25 @@
 
     <!-- Main Content -->
     <main class="main">
+        <!-- Filter Buttons -->
+        <div class="filter-bar">
+            <span class="filter-bar__label">Show:</span>
+            <div class="filter-bar__buttons">
+                <button class="filter-btn filter-btn--active" data-filter="all">
+                    <span class="filter-btn__icon">🌏</span>
+                    <span class="filter-btn__text">All</span>
+                </button>
+                <button class="filter-btn" data-filter="deadly">
+                    <span class="filter-btn__icon">☠️</span>
+                    <span class="filter-btn__text">Deadly Animals</span>
+                </button>
+                <button class="filter-btn" data-filter="dinosaur">
+                    <span class="filter-btn__icon">🦖</span>
+                    <span class="filter-btn__text">Dinosaurs</span>
+                </button>
+            </div>
+        </div>
+
         <!-- Map Container -->
         <section id="map-container" class="map-container">
             <div id="australia-map" class="australia-map">

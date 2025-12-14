@@ -96,6 +96,7 @@ const GameMap = (function() {
         const marker = document.createElement('button');
         marker.className = `marker marker--${animal.rarity}`;
         marker.dataset.animalId = animal.id;
+        marker.dataset.category = animal.category;  // Store category for filtering
         marker.setAttribute('aria-label', `Discover ${animal.name}`);
 
         // Position based on animal's coordinates (percentage-based)
@@ -189,11 +190,28 @@ const GameMap = (function() {
         });
     }
 
+    /**
+     * Filter markers by category
+     * @param {string} filter - Filter type: 'all', 'deadly', or 'dinosaur'
+     */
+    function filterMarkers(filter) {
+        markers.forEach(marker => {
+            const category = marker.dataset.category;
+            if (filter === 'all') {
+                marker.style.display = '';
+            } else {
+                marker.style.display = category === filter ? '' : 'none';
+            }
+        });
+        console.log(`Filtered markers: ${filter}`);
+    }
+
     // Public API
     return {
         init,
         placeMarkers,
         updateMarkerState,
-        updateAllMarkerStates
+        updateAllMarkerStates,
+        filterMarkers
     };
 })();
