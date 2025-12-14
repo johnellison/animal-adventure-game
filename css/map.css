@@ -1,0 +1,249 @@
+/* ========================================
+   Map Styles - Treasure Map Aesthetic
+   ======================================== */
+
+.map-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    background: var(--color-parchment-dark);
+    border: 8px solid var(--color-ink);
+    border-radius: var(--radius-lg);
+    box-shadow:
+        var(--shadow-lg),
+        inset 0 0 50px rgba(0, 0, 0, 0.1);
+
+    /* Decorative corners */
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border: 3px solid var(--color-gold);
+    }
+
+    &::before {
+        top: 10px;
+        left: 10px;
+        border-right: none;
+        border-bottom: none;
+    }
+
+    &::after {
+        bottom: 10px;
+        right: 10px;
+        border-left: none;
+        border-top: none;
+    }
+}
+
+.australia-map {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(
+        135deg,
+        var(--color-ocean) 0%,
+        var(--color-ocean-dark) 100%
+    );
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.australia-map svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Map SVG Styling */
+.australia-map .land {
+    fill: var(--color-land);
+    stroke: var(--color-ink);
+    stroke-width: 2;
+    transition: fill var(--transition-fast);
+}
+
+.australia-map .ocean {
+    fill: var(--color-ocean);
+}
+
+/* Animal Markers */
+.marker {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+    z-index: 10;
+}
+
+.marker:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+    z-index: 20;
+}
+
+.marker:focus {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+}
+
+.marker__icon {
+    width: 100%;
+    height: 100%;
+    background: var(--color-parchment);
+    border: 3px solid var(--color-ink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.marker:hover .marker__icon {
+    box-shadow: 0 0 15px var(--color-gold);
+    border-color: var(--color-gold);
+}
+
+/* Marker States */
+.marker--collected .marker__icon {
+    background: var(--color-gold-light);
+    border-color: var(--color-gold);
+}
+
+.marker--undiscovered .marker__icon {
+    background: var(--color-parchment-dark);
+    opacity: 0.7;
+}
+
+/* Rarity-based marker borders */
+.marker--common .marker__icon {
+    border-color: var(--rarity-common);
+}
+
+.marker--uncommon .marker__icon {
+    border-color: var(--rarity-uncommon);
+}
+
+.marker--rare .marker__icon {
+    border-color: var(--rarity-rare);
+}
+
+.marker--legendary .marker__icon {
+    border-color: var(--rarity-legendary);
+    animation: legendaryGlow 2s infinite;
+}
+
+/* G/K Sound Indicator Badge */
+.marker__speech-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 18px;
+    height: 18px;
+    background: var(--color-success);
+    border: 2px solid white;
+    border-radius: 50%;
+    font-size: 0.6rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Map Legend */
+.map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-md);
+}
+
+.map-legend__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: 0.875rem;
+}
+
+.map-legend__marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid;
+}
+
+/* Compass Rose Decoration */
+.compass-rose {
+    position: absolute;
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    width: 60px;
+    height: 60px;
+    opacity: 0.6;
+}
+
+/* Animations */
+@keyframes legendaryGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px var(--rarity-legendary);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--rarity-legendary), 0 0 30px var(--rarity-legendary);
+    }
+}
+
+@keyframes markerBounce {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-8px);
+    }
+}
+
+.marker--active {
+    animation: markerBounce 0.5s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .map-container {
+        padding: var(--space-md);
+        border-width: 4px;
+    }
+
+    .marker {
+        width: 32px;
+        height: 32px;
+    }
+
+    .marker__icon {
+        font-size: 1.2rem;
+    }
+
+    .map-legend {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .marker {
+        width: 28px;
+        height: 28px;
+    }
+
+    .marker__icon {
+        font-size: 1rem;
+        border-width: 2px;
+    }
+}

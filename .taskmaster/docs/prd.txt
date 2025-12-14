@@ -1,0 +1,454 @@
+# Product Requirements Document
+# Australian Animal Adventure - A Discovery Game for Kids
+
+---
+
+## 1. OVERVIEW
+
+### Problem Statement
+Young children (ages 4-7) are naturally curious about animals, particularly dangerous/deadly creatures and dinosaurs. Existing educational resources are either too dry, use low-quality illustrations, or don't engage children in an interactive, game-like way. Additionally, children with speech impediments (like difficulty pronouncing G/K sounds) lack fun, contextual ways to practice these sounds.
+
+### Target Users
+- **Primary:** Reuben (7 years old) - interested in deadly/dangerous Australian animals, can read, uses computer and phone, has difficulty pronouncing G/K sounds (substitutes with T)
+- **Secondary:** Jesse (4 years old) - interested in dinosaurs, pre-reader, needs audio support
+
+### Core Value Proposition
+A treasure-map-style interactive map of Australia where kids discover real animals and dinosaurs, collect them like Pokemon cards, learn fun facts, and optionally practice tricky pronunciation - all with real photos, not illustrations.
+
+### Success Metrics
+- Kids voluntarily return to play without prompting
+- Reuben can name 10+ animals and share facts about them
+- Jesse engages with dinosaur content independently
+- Print version gets hung on bedroom wall
+- Speech practice becomes a fun game rather than a chore
+
+---
+
+## 2. FUNCTIONAL DECOMPOSITION (WHAT)
+
+### Capability Domain A: Interactive Map
+**Features:**
+- A1: Display Australia map with treasure-map/adventure aesthetic
+- A2: Show clickable animal markers at geographically appropriate locations
+- A3: Enforce land animals on land, sea animals in sea (critical for kid logic)
+- A4: Responsive design - works on desktop and mobile
+- A5: Visual feedback on hover/tap (marker grows, glows, or bounces)
+
+**Inputs/Outputs:**
+- Input: User clicks/taps on animal marker
+- Output: Animal detail modal opens
+
+### Capability Domain B: Animal Discovery Cards
+**Features:**
+- B1: Pokemon-card-style modal with real photo
+- B2: Display animal name, type (deadly/dangerous/dinosaur), habitat
+- B3: Show fun statistics (size, speed, danger level, rarity)
+- B4: Display 2-3 cool fun facts
+- B5: Rarity system (Common, Uncommon, Rare, Legendary)
+- B6: Visual rarity indicators (card border color, sparkle effects)
+
+**Inputs/Outputs:**
+- Input: Animal ID from marker click
+- Output: Rendered card modal with all animal data
+
+### Capability Domain C: Collection System
+**Features:**
+- C1: "Collect" button on each animal card
+- C2: Persistent collection storage (localStorage)
+- C3: Collection gallery view showing all discovered animals
+- C4: Progress indicator ("5/20 Discovered!")
+- C5: Visual distinction between collected and undiscovered
+- C6: Celebration animation on new discovery
+
+**Inputs/Outputs:**
+- Input: User clicks "Collect" button
+- Output: Animal added to collection, celebration plays, progress updates
+
+### Capability Domain D: Text-to-Speech
+**Features:**
+- D1: "Read to me" button on animal cards
+- D2: Reads animal name and fun facts aloud
+- D3: Browser Web Speech API implementation (Phase 1)
+- D4: ElevenLabs integration ready (Phase 2, if needed)
+- D5: Visual indicator while speaking (pulsing speaker icon)
+
+**Inputs/Outputs:**
+- Input: User clicks "Read to me" button
+- Output: Audio playback of card content
+
+### Capability Domain E: Speech Practice Mode
+**Features:**
+- E1: Highlight animals with G/K sounds in name (Kangaroo, Crocodile, King Brown Snake, etc.)
+- E2: "Practice saying it!" prompt with phonetic breakdown
+- E3: Visual cues for G/K sounds (different color, larger font)
+- E4: Encouraging feedback ("Great try! The 'K' in Kangaroo sounds like 'kuh'")
+- E5: Optional - record and playback (stretch goal)
+
+**Inputs/Outputs:**
+- Input: User clicks "Practice" button on G/K animal
+- Output: Speech practice UI with phonetic guidance
+
+### Capability Domain F: Print Mode
+**Features:**
+- F1: Print-friendly map view (high contrast, no interactive elements)
+- F2: Printable fact cards (sized for cutting out)
+- F3: Print CSS that hides UI chrome
+- F4: Option to print full poster or individual cards
+- F5: Markers on printed map match card references
+
+**Inputs/Outputs:**
+- Input: User clicks "Print Map" or "Print Cards" button
+- Output: Browser print dialog with optimized layout
+
+---
+
+## 3. STRUCTURAL DECOMPOSITION (HOW)
+
+### Repository Structure
+```
+animal-adventure-game/
+├── index.html              # Main entry point
+├── css/
+│   ├── style.css           # Main styles
+│   ├── map.css             # Map-specific styles
+│   ├── cards.css           # Pokemon card styles
+│   ├── print.css           # Print-only styles
+│   └── animations.css      # Sparkles, celebrations
+├── js/
+│   ├── app.js              # Main app initialization
+│   ├── map.js              # Map rendering & markers
+│   ├── animals.js          # Animal data & logic
+│   ├── cards.js            # Card modal rendering
+│   ├── collection.js       # Collection & localStorage
+│   ├── speech.js           # TTS functionality
+│   └── print.js            # Print mode handling
+├── data/
+│   └── animals.json        # All animal data
+├── images/
+│   ├── map/
+│   │   └── australia.svg   # Base map
+│   ├── animals/
+│   │   ├── kangaroo.jpg
+│   │   ├── crocodile.jpg
+│   │   └── ... (all animal photos)
+│   └── ui/
+│       ├── marker.svg
+│       └── card-frames/    # Rarity border images
+├── audio/                  # Optional sound effects
+└── .taskmaster/
+    └── docs/
+        └── prd.txt         # This document
+```
+
+### Module-to-Capability Mapping
+| Module | Capabilities |
+|--------|--------------|
+| map.js | A1, A2, A3, A5 |
+| map.css | A1, A4 |
+| cards.js | B1, B2, B3, B4, B5, B6 |
+| cards.css | B1, B5, B6 |
+| collection.js | C1, C2, C3, C4, C5, C6 |
+| speech.js | D1, D2, D3, D4, D5, E1, E2, E3, E4 |
+| print.js, print.css | F1, F2, F3, F4, F5 |
+| animals.json | Data layer for all capabilities |
+
+### Public Interfaces
+```javascript
+// map.js
+initMap(containerId)
+placeMarkers(animals)
+onMarkerClick(callback)
+
+// animals.js
+getAllAnimals() -> Animal[]
+getAnimalById(id) -> Animal
+getAnimalsByType(type) -> Animal[]
+hasGKSound(animal) -> boolean
+
+// cards.js
+showCard(animal)
+hideCard()
+
+// collection.js
+collectAnimal(id)
+isCollected(id) -> boolean
+getCollection() -> Animal[]
+getProgress() -> {collected: number, total: number}
+
+// speech.js
+speakText(text)
+stopSpeaking()
+isSpeaking() -> boolean
+```
+
+---
+
+## 4. DEPENDENCY GRAPH
+
+### Layer 0 - Foundation (No Dependencies)
+- **T0.1:** Project setup (HTML boilerplate, folder structure)
+- **T0.2:** Animal data JSON schema design
+- **T0.3:** Source and download animal images (20 animals)
+- **T0.4:** Create/source Australia SVG map
+
+### Layer 1 - Core Data & Display
+Dependencies: Layer 0
+- **T1.1:** Create animals.json with all animal data [depends: T0.2, T0.3]
+- **T1.2:** Basic HTML structure with map container [depends: T0.1]
+- **T1.3:** Map rendering with treasure-map styling [depends: T0.4, T1.2]
+- **T1.4:** CSS foundation (variables, base styles) [depends: T0.1]
+
+### Layer 2 - Interactivity
+Dependencies: Layer 1
+- **T2.1:** Marker placement system (land vs sea logic) [depends: T1.1, T1.3]
+- **T2.2:** Marker click handlers [depends: T2.1]
+- **T2.3:** Basic modal system [depends: T1.4]
+- **T2.4:** Responsive layout [depends: T1.4]
+
+### Layer 3 - Pokemon Card System
+Dependencies: Layer 2
+- **T3.1:** Card modal HTML/CSS (Pokemon style) [depends: T2.3]
+- **T3.2:** Rarity system visual design [depends: T3.1]
+- **T3.3:** Card content rendering (stats, facts) [depends: T3.1, T1.1]
+- **T3.4:** Card animations (open/close) [depends: T3.1]
+
+### Layer 4 - Collection & Progress
+Dependencies: Layer 3
+- **T4.1:** localStorage collection system [depends: T3.3]
+- **T4.2:** Collection gallery view [depends: T4.1]
+- **T4.3:** Progress indicator UI [depends: T4.1]
+- **T4.4:** Discovery celebration animation [depends: T4.1]
+
+### Layer 5 - Audio & Speech
+Dependencies: Layer 3
+- **T5.1:** Web Speech API integration [depends: T3.3]
+- **T5.2:** "Read to me" button and flow [depends: T5.1]
+- **T5.3:** G/K sound detection and highlighting [depends: T1.1]
+- **T5.4:** Speech practice mode UI [depends: T5.1, T5.3]
+
+### Layer 6 - Print & Polish
+Dependencies: Layer 4, Layer 5
+- **T6.1:** Print stylesheet [depends: T1.3, T3.1]
+- **T6.2:** Printable fact cards layout [depends: T6.1]
+- **T6.3:** Print mode toggle UI [depends: T6.1]
+- **T6.4:** Final visual polish and testing [depends: all]
+- **T6.5:** GitHub Pages deployment [depends: T6.4]
+
+---
+
+## 5. IMPLEMENTATION ROADMAP
+
+### Phase 1: Foundation
+**Entry Criteria:** PRD approved
+**Exit Criteria:** Map displays with placeholder markers, folder structure complete
+
+Tasks:
+- T0.1: Project setup
+- T0.2: Animal data schema
+- T0.3: Image sourcing (CRITICAL PATH)
+- T0.4: Australia map asset
+- T1.2: Basic HTML
+- T1.3: Map styling
+- T1.4: CSS foundation
+
+**Deliverable:** Static treasure-map of Australia visible in browser
+
+### Phase 2: Core Interaction
+**Entry Criteria:** Phase 1 complete, images sourced
+**Exit Criteria:** Clicking markers shows animal cards
+
+Tasks:
+- T1.1: Complete animals.json
+- T2.1: Marker placement
+- T2.2: Click handlers
+- T2.3: Modal system
+- T2.4: Responsive layout
+- T3.1-T3.4: Pokemon card system
+
+**Deliverable:** Full click-to-discover flow working
+
+### Phase 3: Gamification
+**Entry Criteria:** Phase 2 complete
+**Exit Criteria:** Collection system working, progress tracked
+
+Tasks:
+- T4.1-T4.4: Collection system
+- T5.1-T5.2: Text-to-speech
+
+**Deliverable:** Kids can collect animals, hear facts read aloud
+
+### Phase 4: Speech & Print
+**Entry Criteria:** Phase 3 complete
+**Exit Criteria:** Speech practice mode and print version working
+
+Tasks:
+- T5.3-T5.4: Speech practice features
+- T6.1-T6.3: Print mode
+
+**Deliverable:** Complete feature set
+
+### Phase 5: Deploy
+**Entry Criteria:** Phase 4 complete
+**Exit Criteria:** Live on GitHub Pages, tested by Reuben and Jesse
+
+Tasks:
+- T6.4: Polish
+- T6.5: Deployment
+
+**Deliverable:** Production URL shared with family
+
+---
+
+## 6. TEST STRATEGY
+
+### Manual Testing (Primary - Kid Testers)
+- Reuben tests on desktop Chrome and mobile Safari
+- Jesse tests with parent assistance
+- Parent verifies print output quality
+
+### Developer Testing Checklist
+| Area | Test |
+|------|------|
+| Map | All markers visible and clickable |
+| Map | Land animals not in ocean, sea animals not on land |
+| Map | Responsive on mobile viewport |
+| Cards | All 20 animals have complete data |
+| Cards | Rarity borders display correctly |
+| Cards | Modal opens/closes smoothly |
+| Collection | Persists after page refresh |
+| Collection | Progress count accurate |
+| TTS | Works in Chrome, Safari, Firefox |
+| TTS | Stops when modal closes |
+| Speech | G/K animals correctly identified |
+| Print | Map fits on A4/Letter |
+| Print | Fact cards have cut guides |
+
+### Critical Edge Cases
+- What happens when all animals collected? (Celebration!)
+- localStorage full or disabled? (Graceful fallback)
+- TTS not supported? (Hide button, don't break)
+
+---
+
+## 7. ARCHITECTURE & RISKS
+
+### Technical Architecture
+```
+┌─────────────────────────────────────────────────┐
+│                   index.html                     │
+│  ┌───────────┐  ┌───────────┐  ┌─────────────┐ │
+│  │  Map View │  │Card Modal │  │ Collection  │ │
+│  │           │  │           │  │   Gallery   │ │
+│  └─────┬─────┘  └─────┬─────┘  └──────┬──────┘ │
+│        │              │               │        │
+│  ┌─────┴──────────────┴───────────────┴─────┐  │
+│  │              JavaScript Layer             │  │
+│  │  map.js │ cards.js │ collection.js │ ... │  │
+│  └─────────────────────┬─────────────────────┘  │
+│                        │                        │
+│  ┌─────────────────────┴─────────────────────┐  │
+│  │          animals.json (data layer)         │  │
+│  └───────────────────────────────────────────┘  │
+│                                                 │
+│  ┌───────────────────────────────────────────┐  │
+│  │      localStorage (collection state)       │  │
+│  └───────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────┘
+```
+
+### Data Model: Animal
+```json
+{
+  "id": "saltwater-crocodile",
+  "name": "Saltwater Crocodile",
+  "type": "deadly",
+  "category": "reptile",
+  "habitat": "sea",
+  "rarity": "rare",
+  "position": { "x": 45, "y": 22 },
+  "image": "images/animals/crocodile.jpg",
+  "stats": {
+    "size": "Up to 6 meters",
+    "speed": "Fast swimmer",
+    "dangerLevel": 5
+  },
+  "facts": [
+    "They have the strongest bite of any animal!",
+    "They can hold their breath for over an hour.",
+    "They've been around since dinosaur times!"
+  ],
+  "speechPractice": {
+    "hasGKSound": true,
+    "phonetic": "KROK-oh-dyle",
+    "targetSound": "K",
+    "tip": "Start with a 'kuh' sound at the back of your throat!"
+  }
+}
+```
+
+### Risks & Mitigations
+
+| Risk | Likelihood | Impact | Mitigation |
+|------|------------|--------|------------|
+| Image sourcing takes too long | Medium | High | Use Wikipedia Commons API; have backup list of 20 CC0 images ready |
+| Kids find it boring | Low | High | Test early with paper prototype; add celebration animations |
+| TTS sounds too robotic | Medium | Medium | Start with browser TTS; ElevenLabs as Phase 2 upgrade |
+| Print layout breaks | Medium | Low | Test on actual printer early; use standard paper sizes |
+| Speech practice feels like homework | Medium | Medium | Make it optional; reward engagement with special badge |
+
+### Image Sourcing Strategy (CRITICAL)
+**Primary Source:** Wikimedia Commons
+- All images CC0 or CC-BY licensed
+- High resolution available
+- Reliable, no CORS issues when downloaded locally
+
+**Process:**
+1. Create list of 20 target animals
+2. Search Wikimedia Commons for each
+3. Download highest quality version
+4. Resize to 400x400px for cards
+5. Compress for web (WebP with JPG fallback)
+
+**Backup Source:** Unsplash (CC0 photos)
+
+### Animal Roster (20 Total)
+
+**Deadly/Dangerous Australian (10):**
+1. Saltwater Crocodile (K sound) - sea
+2. Box Jellyfish - sea
+3. Blue-ringed Octopus - sea
+4. Great White Shark (K sound) - sea
+5. Inland Taipan Snake (K sound) - land
+6. Eastern Brown Snake - land
+7. Funnel-web Spider - land
+8. Kangaroo (K sound) - land
+9. Cassowary (K sound) - land
+10. King Brown Snake (K, G sounds) - land
+
+**Australian Dinosaurs (10):**
+11. Australovenator - land (fast predator!)
+12. Muttaburrasaurus - land (plant eater with big nose)
+13. Diamantinasaurus - land (giant long-neck)
+14. Kronosaurus (K sound) - sea (massive sea monster)
+15. Minmi - land (armored tank)
+16. Australotitan - land (one of biggest dinosaurs ever!)
+17. Leaellynasaura - land (cute small one with big eyes)
+18. Kunbarrasaurus (K sound) - land (armored with club tail)
+19. Ozraptor - land (mystery predator)
+20. Rapator - land (big claws!)
+
+---
+
+## APPENDIX: Speech Practice G/K Sound Animals
+
+Animals with target sounds for Reuben's practice:
+- **K sounds:** Crocodile, Shark, Taipan (snake), Kangaroo, Cassowary, King Brown Snake, Kronosaurus, Kunbarrasaurus
+- **G sounds:** King Brown Snake (King)
+
+These will be marked with a special "Practice" badge on the map.
+
+---
+
+*Document Version: 1.1*
+*Created: December 2024*
+*For: Reuben (7) and Jesse (4)*

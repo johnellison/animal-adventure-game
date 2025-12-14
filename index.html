@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Australian Animal Adventure - Discover deadly creatures and dinosaurs from Australia!">
+    <title>Australian Animal Adventure</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/collection.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="header__title">Australian Animal Adventure</h1>
+        <div class="header__progress">
+            <span id="progress-count">0</span>/20 Discovered!
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Map Container -->
+        <section id="map-container" class="map-container">
+            <div id="australia-map" class="australia-map">
+                <!-- Map SVG and markers will be injected here -->
+            </div>
+        </section>
+
+        <!-- Collection Gallery Toggle -->
+        <button id="collection-toggle" class="collection-toggle" aria-label="View Collection">
+            <span class="collection-toggle__icon">📚</span>
+            <span class="collection-toggle__text">My Collection</span>
+        </button>
+    </main>
+
+    <!-- Animal Card Modal -->
+    <div id="animal-modal" class="modal" aria-hidden="true">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__content card" role="dialog" aria-labelledby="modal-title">
+            <button class="modal__close" data-close-modal aria-label="Close">&times;</button>
+
+            <div class="card__header">
+                <span id="card-rarity" class="card__rarity">Common</span>
+                <span id="card-type" class="card__type">Deadly</span>
+            </div>
+
+            <div class="card__image-container">
+                <img id="card-image" class="card__image" src="" alt="">
+            </div>
+
+            <h2 id="modal-title" class="card__name"></h2>
+
+            <div class="card__stats">
+                <div class="stat">
+                    <span class="stat__label">Size</span>
+                    <div class="stat__bar"><div id="stat-size" class="stat__fill"></div></div>
+                </div>
+                <div class="stat">
+                    <span class="stat__label">Speed</span>
+                    <div class="stat__bar"><div id="stat-speed" class="stat__fill"></div></div>
+                </div>
+                <div class="stat">
+                    <span class="stat__label">Danger</span>
+                    <div class="stat__bar"><div id="stat-danger" class="stat__fill stat__fill--danger"></div></div>
+                </div>
+            </div>
+
+            <div class="card__habitat">
+                <span class="card__habitat-label">Habitat:</span>
+                <span id="card-habitat" class="card__habitat-value"></span>
+            </div>
+
+            <div class="card__facts">
+                <h3 class="card__facts-title">Fun Facts</h3>
+                <ul id="card-facts-list" class="card__facts-list"></ul>
+            </div>
+
+            <!-- Speech Practice Section (for G/K sound animals) -->
+            <div id="speech-practice" class="speech-practice" hidden>
+                <h3 class="speech-practice__title">Practice Saying It!</h3>
+                <p id="phonetic-display" class="speech-practice__phonetic"></p>
+                <p id="speech-tip" class="speech-practice__tip"></p>
+            </div>
+
+            <div class="card__actions">
+                <button id="btn-speak" class="btn btn--speak" aria-label="Read aloud">
+                    <span class="btn__icon">🔊</span> Read to Me
+                </button>
+                <button id="btn-collect" class="btn btn--collect">
+                    <span class="btn__icon">⭐</span> Collect!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Collection Gallery Modal -->
+    <div id="collection-modal" class="modal modal--gallery" aria-hidden="true">
+        <div class="modal__overlay" data-close-modal></div>
+        <div class="modal__content gallery" role="dialog" aria-labelledby="gallery-title">
+            <button class="modal__close" data-close-modal aria-label="Close">&times;</button>
+            <h2 id="gallery-title" class="gallery__title">My Collection</h2>
+            <div class="gallery__controls">
+                <button id="btn-print-map" class="btn btn--print">🗺️ Print Map</button>
+                <button id="btn-print-cards" class="btn btn--print">🃏 Print Cards</button>
+            </div>
+            <div id="collection-grid" class="gallery__grid">
+                <!-- Collection items will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Overlay -->
+    <div id="celebration" class="celebration" hidden>
+        <div class="celebration__content">
+            <div class="celebration__stars">✨🌟✨</div>
+            <p class="celebration__text">New Discovery!</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/collection.js"></script>
+    <script src="js/speech.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

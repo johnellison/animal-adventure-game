@@ -1,0 +1,582 @@
+[
+  {
+    "id": "saltwater-crocodile",
+    "name": "Saltwater Crocodile",
+    "type": "reptile",
+    "category": "deadly",
+    "habitat": "land",
+    "rarity": "rare",
+    "position": {
+      "x": 28,
+      "y": 25
+    },
+    "image": "images/animals/saltwater-crocodile.svg",
+    "stats": {
+      "size": 10,
+      "speed": 6,
+      "dangerLevel": 10
+    },
+    "facts": [
+      "Saltwater crocs are the largest reptiles on Earth, growing up to 7 meters long!",
+      "They can hold their breath for over an hour underwater.",
+      "Their bite is the strongest of any animal alive today."
+    ],
+    "speechPractice": {
+      "hasGKSound": true,
+      "phonetic": "KROK-oh-dile",
+      "targetSound": "k",
+      "tip": "Start with the back of your tongue touching the roof of your mouth for the K sound!"
+    }
+  },
+  {
+    "id": "great-white-shark",
+    "name": "Great White Shark",
+    "type": "fish",
+    "category": "deadly",
+    "habitat": "sea",
+    "rarity": "legendary",
+    "position": {
+      "x": 75,
+      "y": 70
+    },
+    "image": "images/animals/great-white-shark.jpg",
+    "stats": {
+      "size": 9,
+      "speed": 9,
+      "dangerLevel": 9
+    },
+    "facts": [
+      "Great white sharks can smell a single drop of blood from 5 kilometers away!",
+      "They have about 300 teeth arranged in several rows.",
+      "Despite their scary reputation, they're actually curious creatures."
+    ],
+    "speechPractice": {
+      "hasGKSound": true,
+      "phonetic": "SHARK",
+      "targetSound": "k",
+      "tip": "The K sound at the end is quick and sharp - like a snap!"
+    }
+  },
+  {
+    "id": "eastern-brown-snake",
+    "name": "Eastern Brown Snake",
+    "type": "reptile",
+    "category": "deadly",
+    "habitat": "land",
+    "rarity": "uncommon",
+    "position": {
+      "x": 70,
+      "y": 48
+    },
+    "image": "images/animals/eastern-brown-snake.svg",
+    "stats": {
+      "size": 4,
+      "speed": 8,
+      "dangerLevel": 10
+    },
+    "facts": [
+      "The eastern brown snake is responsible for more deaths in Australia than any other snake.",
+      "They can move incredibly fast when threatened.",
+      "Baby brown snakes are just as venomous as adults!"
+    ],
+    "speechPractice": {
+      "hasGKSound": false,
+      "phonetic": "EES-tern brown SNAYK",
+      "targetSound": "",
+      "tip": ""
+    }
+  },
+  {
+    "id": "sydney-funnel-web",
+    "name": "Sydney Funnel-web Spider",
+    "type": "arachnid",
+    "category": "deadly",
+    "habitat": "land",
+    "rarity": "rare",
+    "position": {
+      "x": 72,
+      "y": 55
+    },
+    "image": "images/animals/sydney-funnel-web.jpg",
+    "stats": {
+      "size": 2,
+      "speed": 4,
+      "dangerLevel": 9
+    },
+    "facts": [
+      "The funnel-web is one of the most venomous spiders in the world!",
+      "They build funnel-shaped webs in cool, moist places.",
+      "An antivenom was developed in 1981 and has saved many lives."
+    ],
+    "speechPractice": {
+      "hasGKSound": false,
+      "phonetic": "SID-nee FUN-el web",
+      "targetSound": "",
+      "tip": ""
+    }
+  },
+  {
+    "id": "box-jellyfish",
+    "name": "Box Jellyfish",
+    "type": "cnidarian",
+    "category": "deadly",
+    "habitat": "sea",
+    "rarity": "uncommon",
+    "position": {
+      "x": 35,
+      "y": 22
+    },
+    "image": "images/animals/box-jellyfish.jpg",
+    "stats": {
+      "size": 3,
+      "speed": 5,
+      "dangerLevel": 10
+    },
+    "facts": [
+      "Box jellyfish have 24 eyes but no brain!",
+      "Their tentacles can be up to 3 meters long.",
+      "They are almost completely see-through, making them hard to spot."
+    ],
+    "speechPractice": {
+      "hasGKSound": false,
+      "phonetic": "BOKS JEL-ee-fish",
+      "targetSound": "",
+      "tip": ""
+    }
+  },
+  {
+    "id": "blue-ringed-octopus",
+    "name": "Blue-ringed Octopus",
+    "type": "mollusk",
+    "category": "deadly",
+    "habitat": "sea",
+    "rarity": "legendary",
+    "position": {
+      "x": 50,
+      "y": 70
+    },
+    "image": "images/animals/blue-ringed-octopus.jpg",
+    "stats": {
+      "size": 1,
+      "speed": 3,
+      "dangerLevel": 10
+    },
+    "facts": [
+      "Despite being the size of a golf ball, it has enough venom to kill 26 adults!",
+      "When threatened, its blue rings glow bright as a warning.",
+      "They are actually quite shy and only bite when handled."
+    ],
+    "speechPractice": {
+      "hasGKSound": true,
+      "phonetic": "OK-toh-pus",
+      "targetSound": "k",
+      "tip": "Feel the K sound pop in the middle of oc-to-pus!"
+    }
+  },
+  {
+    "id": "red-kangaroo",
+    "name": "Red Kangaroo",
+    "type": "mammal",
+    "category": "deadly",
+    "habitat": "land",
+    "rarity": "common",
+    "position": {
+      "x": 45,
+      "y": 45
+    },
+    "image": "images/animals/red-kangaroo.svg",
+    "stats": {
+      "size": 7,
+      "speed": 8,
+      "dangerLevel": 5
+    },
+    "facts": [
+      "Red kangaroos can jump up to 9 meters in a single bound!",
+      "A group of kangaroos is called a mob.",
+      "Their powerful legs can deliver kicks strong enough to break bones."
+    ],
+    "speechPractice": {
+      "hasGKSound": true,
+      "phonetic": "KANG-guh-roo",
+      "targetSound": "g",
+      "tip": "Feel the G sound rumble in your throat - KANG-ga-roo!"
+    }
+  },
+  {
+    "id": "cassowary",
+    "name": "Southern Cassowary",
+    "type": "bird",
+    "category": "deadly",
+    "habitat": "land",
+    "rarity": "rare",
+    "position": {
+      "x": 42,
+      "y": 18
+    },
+    "image": "images/animals/cassowary.jpg",
+    "stats": {
+      "size": 6,
+      "speed": 7,
+      "dangerLevel": 7
+    },
+    "facts": [
+      "Cassowaries have a dagger-like claw that can be 12cm long!",
+      "They can run up to 50 km/h through dense rainforest.",
+      "The colorful skin on their neck can change color based on mood."
+    ],
+    "speechPractice": {
+      "hasGKSound": true,
+      "phonetic": "KASS-oh-wair-ee",
+      "targetSound": "k",
+      "tip": "Start strong with a crisp K sound at the beginning!"
+    }
+  },
+  {
+    "id": "platypus",
+    "name": "Platypus",
+    "type": "mammal",
+    "category": "deadly",
+    "habitat": "land",
+    "rarity": "uncommon",
+    "position": {
+      "x": 68,
+      "y": 62
+    },
+    "image": "images/animals/platypus.jpg",
+    "stats": {
+      "size": 2,
+      "speed": 4,
+      "dangerLevel": 3
+    },
+    "facts": [
+      "Male platypuses have venomous spurs on their back legs!",
+      "They use their bill to detect electrical signals from prey.",
+      "They are one of only five mammals that lay eggs."
+    ],
+    "speechPractice": {
+      "hasGKSound": false,
+      "phonetic": "PLAT-ih-pus",
+      "targetSound": "",
+      "tip": ""
+    }
+  },
+  {
+    "id": "dingo",
+    "name": "Dingo",
+    "type": "mammal",
+    "category": "deadly",
+    "habitat": "land",
+    "rarity": "common",
+    "position": {
+      "x": 52,
+      "y": 35
+    },
+    "image": "images/animals/dingo.jpg",
+    "stats": {
+      "size": 5,
+      "speed": 7,
+      "dangerLevel": 4
+    },
+    "facts": [
+      "Dingoes are Australia's largest land predator!",
+      "They don't bark like domestic dogs - they howl and yodel.",
+      "Dingoes have been in Australia for over 4,000 years."
+    ],
+    "speechPractice": {
+      "hasGKSound": true,
+      "phonetic": "DING-goh",
+      "targetSound": "g",
+      "tip": "The G comes twice! DING-go - feel it vibrate!"
+    }
+  },
+  {
+    "id": "muttaburrasaurus",
+    "name": "Muttaburrasaurus",
+    "type": "ornithopod",
+    "category": "dinosaur",
+    "habitat": "land",
+    "rarity": "rare",
+    "position": {
+      "x": 55,
+      "y": 28
+    },
+    "image": "images/animals/muttaburrasaurus.svg",
+    "stats": {
+      "size": 8,
+      "speed": 5,
+      "dangerLevel": 4
+    },
+    "facts": [
+      "Muttaburrasaurus was named after the town of Muttaburra in Queensland!",
+      "It had a distinctive bump on its snout that may have been used to make sounds.",
+      "This plant-eater roamed Australia about 100 million years ago."
+    ],
+    "speechPractice": {
+      "hasGKSound": false,
+      "phonetic": "MUT-uh-BUR-uh-SAW-rus",
+      "targetSound": "",
+      "tip": ""
+    }
+  },
+  {
+    "id": "australovenator",
+    "name": "Australovenator",
+    "type": "theropod",
+    "category": "dinosaur",
+    "habitat": "land",
+    "rarity": "legendary",
+    "position": {
+      "x": 48,
+      "y": 38
+    },
+    "image": "images/animals/australovenator.svg",
+    "stats": {
+      "size": 7,
+      "speed": 9,
+      "dangerLevel": 9
+    },
+    "facts": [
+      "Australovenator was nicknamed 'Banjo' after the famous Australian poet!",
+      "It was one of the top predators in Australia 95 million years ago.",
+      "Its name means 'Southern Hunter' - and it was a fierce one!"
+    ],
+    "speechPractice": {
+      "hasGKSound": false,
+      "phonetic": "aw-STRAL-oh-VEN-ah-tor",
+      "targetSound": "",
+      "tip": ""
+    }
+  },
+  {
+    "id": "diamantinasaurus",
+    "name": "Diamantinasaurus",
+    "type": "sauropod",
+    "category": "dinosaur",
+    "habitat": "land",
+    "rarity": "rare",
+    "position": {
+      "x": 52,
+      "y": 32
+    },
+    "image": "images/animals/diamantinasaurus.svg",
+    "stats": {
+      "size": 10,
+      "speed": 3,
+      "dangerLevel": 2
+    },
+    "facts": [
+      "Diamantinasaurus was a gentle giant that ate plants!",
+      "It could grow up to 16 meters long - as long as 3 cars!",
+      "Named after the Diamantina River in Queensland where it was found."
+    ],
+    "speechPractice": {
+      "hasGKSound": false,
+      "phonetic": "DY-uh-man-TEE-nuh-SAW-rus",
+      "targetSound": "",
+      "tip": ""
+    }
+  },
+  {
+    "id": "kunbarrasaurus",
+    "name": "Kunbarrasaurus",
+    "type": "ankylosaur",
+    "category": "dinosaur",
+    "habitat": "land",
+    "rarity": "uncommon",
+    "position": {
+      "x": 40,
+      "y": 25
+    },
+    "image": "images/animals/kunbarrasaurus.svg",
+    "stats": {
+      "size": 5,
+      "speed": 3,
+      "dangerLevel": 3
+    },
+    "facts": [
+      "Kunbarrasaurus was covered in bony armor for protection!",
+      "It had a complex inner ear, suggesting excellent hearing.",
+      "This tank-like dinosaur was about the size of a large sheep."
+    ],
+    "speechPractice": {
+      "hasGKSound": true,
+      "phonetic": "kun-BAR-uh-SAW-rus",
+      "targetSound": "k",
+      "tip": "Start with a strong K - KUN-bar-ra-saurus!"
+    }
+  },
+  {
+    "id": "leaellynasaura",
+    "name": "Leaellynasaura",
+    "type": "ornithopod",
+    "category": "dinosaur",
+    "habitat": "land",
+    "rarity": "uncommon",
+    "position": {
+      "x": 60,
+      "y": 68
+    },
+    "image": "images/animals/leaellynasaura.jpg",
+    "stats": {
+      "size": 2,
+      "speed": 7,
+      "dangerLevel": 1
+    },
+    "facts": [
+      "Leaellynasaura had huge eyes to see in the dark polar winters!",
+      "It was named after Leaellyn Rich, daughter of the scientists who found it.",
+      "This small dinosaur lived in Antarctica when it was connected to Australia!"
+    ],
+    "speechPractice": {
+      "hasGKSound": false,
+      "phonetic": "lee-EL-in-uh-SAW-ruh",
+      "targetSound": "",
+      "tip": ""
+    }
+  },
+  {
+    "id": "kronosaurus",
+    "name": "Kronosaurus",
+    "type": "plesiosaur",
+    "category": "dinosaur",
+    "habitat": "sea",
+    "rarity": "legendary",
+    "position": {
+      "x": 25,
+      "y": 45
+    },
+    "image": "images/animals/kronosaurus.jpg",
+    "stats": {
+      "size": 10,
+      "speed": 8,
+      "dangerLevel": 10
+    },
+    "facts": [
+      "Kronosaurus was one of the largest marine reptiles ever at 10 meters long!",
+      "Its head alone was 2.4 meters - longer than most humans are tall!",
+      "Named after Kronos, the Greek god who ate his own children!"
+    ],
+    "speechPractice": {
+      "hasGKSound": true,
+      "phonetic": "KROH-noh-SAW-rus",
+      "targetSound": "k",
+      "tip": "The KR blend is tricky! Push air out hard for KROH-no-saurus!"
+    }
+  },
+  {
+    "id": "minmi",
+    "name": "Minmi",
+    "type": "ankylosaur",
+    "category": "dinosaur",
+    "habitat": "land",
+    "rarity": "common",
+    "position": {
+      "x": 58,
+      "y": 35
+    },
+    "image": "images/animals/minmi.svg",
+    "stats": {
+      "size": 4,
+      "speed": 4,
+      "dangerLevel": 2
+    },
+    "facts": [
+      "Minmi was the first armored dinosaur discovered in the Southern Hemisphere!",
+      "It was named after Minmi Crossing in Queensland.",
+      "Despite being armored, Minmi was only about 3 meters long."
+    ],
+    "speechPractice": {
+      "hasGKSound": false,
+      "phonetic": "MIN-mee",
+      "targetSound": "",
+      "tip": ""
+    }
+  },
+  {
+    "id": "ozraptor",
+    "name": "Ozraptor",
+    "type": "theropod",
+    "category": "dinosaur",
+    "habitat": "land",
+    "rarity": "common",
+    "position": {
+      "x": 22,
+      "y": 52
+    },
+    "image": "images/animals/ozraptor.jpg",
+    "stats": {
+      "size": 4,
+      "speed": 8,
+      "dangerLevel": 6
+    },
+    "facts": [
+      "Ozraptor means 'Australian thief' - it was a speedy hunter!",
+      "It's one of the oldest known dinosaurs from Australia.",
+      "Only a small piece of leg bone has ever been found."
+    ],
+    "speechPractice": {
+      "hasGKSound": false,
+      "phonetic": "OZ-rap-tor",
+      "targetSound": "",
+      "tip": ""
+    }
+  },
+  {
+    "id": "qantassaurus",
+    "name": "Qantassaurus",
+    "type": "ornithopod",
+    "category": "dinosaur",
+    "habitat": "land",
+    "rarity": "uncommon",
+    "position": {
+      "x": 62,
+      "y": 72
+    },
+    "image": "images/animals/qantassaurus.svg",
+    "stats": {
+      "size": 3,
+      "speed": 7,
+      "dangerLevel": 1
+    },
+    "facts": [
+      "Qantassaurus was named after Qantas, the Australian airline!",
+      "It was a small, fast-running plant-eater about 2 meters long.",
+      "This dinosaur lived during the Early Cretaceous period."
+    ],
+    "speechPractice": {
+      "hasGKSound": true,
+      "phonetic": "KWON-tuh-SAW-rus",
+      "targetSound": "k",
+      "tip": "The QU makes a KW sound - KWON-ta-saurus!"
+    }
+  },
+  {
+    "id": "woolungasaurus",
+    "name": "Woolungasaurus",
+    "type": "plesiosaur",
+    "category": "dinosaur",
+    "habitat": "sea",
+    "rarity": "rare",
+    "position": {
+      "x": 82,
+      "y": 55
+    },
+    "image": "images/animals/woolungasaurus.jpg",
+    "stats": {
+      "size": 8,
+      "speed": 6,
+      "dangerLevel": 5
+    },
+    "facts": [
+      "Woolungasaurus swam in the shallow seas that once covered inland Australia!",
+      "It had a very long neck to catch fish and squid.",
+      "Named from an Aboriginal word meaning 'long water creature'."
+    ],
+    "speechPractice": {
+      "hasGKSound": true,
+      "phonetic": "woo-LUNG-guh-SAW-rus",
+      "targetSound": "g",
+      "tip": "Feel the G vibrate in LUNG-ga! It's a voiced sound!"
+    }
+  }
+]

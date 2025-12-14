@@ -1,0 +1,357 @@
+/* ========================================
+   Australian Animal Adventure - Main Styles
+   ======================================== */
+
+/* CSS Custom Properties */
+:root {
+    /* Colors - Treasure Map Theme */
+    --color-parchment: #f4e4bc;
+    --color-parchment-dark: #e8d4a8;
+    --color-ink: #3d2914;
+    --color-ink-light: #5c4023;
+    --color-gold: #d4a017;
+    --color-gold-light: #f0c850;
+    --color-ocean: #4a90a4;
+    --color-ocean-dark: #2d5a6b;
+    --color-land: #8fbc8f;
+    --color-danger: #c0392b;
+    --color-success: #27ae60;
+
+    /* Rarity Colors */
+    --rarity-common: #7f8c8d;
+    --rarity-uncommon: #27ae60;
+    --rarity-rare: #3498db;
+    --rarity-legendary: #f39c12;
+
+    /* Typography */
+    --font-display: 'Pirata One', cursive;
+    --font-body: 'Nunito', sans-serif;
+
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-xxl: 3rem;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms ease;
+}
+
+/* Reset & Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--color-parchment);
+    color: var(--color-ink);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    /* Parchment texture effect */
+    background-image:
+        radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.05) 100%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--color-ink) 0%, var(--color-ink-light) 100%);
+    color: var(--color-parchment);
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header__progress {
+    background: var(--color-gold);
+    color: var(--color-ink);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-lg);
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Main Content */
+.main {
+    padding: var(--space-lg);
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Buttons */
+.btn {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn--speak {
+    background: var(--color-ocean);
+    color: white;
+}
+
+.btn--speak:hover {
+    background: var(--color-ocean-dark);
+}
+
+.btn--speak.speaking {
+    animation: pulse 1s infinite;
+}
+
+.btn--collect {
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+    color: var(--color-ink);
+}
+
+.btn--collect:disabled {
+    background: var(--rarity-common);
+    cursor: default;
+    transform: none;
+}
+
+.btn--print {
+    background: var(--color-parchment-dark);
+    color: var(--color-ink);
+    border: 2px solid var(--color-ink);
+}
+
+/* Collection Toggle Button */
+.collection-toggle {
+    position: fixed;
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
+    color: var(--color-ink);
+    border: 3px solid var(--color-ink);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-fast);
+    z-index: 50;
+}
+
+.collection-toggle:hover {
+    transform: scale(1.05);
+}
+
+.collection-toggle__icon {
+    font-size: 1.5rem;
+}
+
+/* Modal Base Styles */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.modal__content {
+    position: relative;
+    background: var(--color-parchment);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    transform: scale(0.9);
+    transition: transform var(--transition-normal);
+}
+
+.modal.active .modal__content {
+    transform: scale(1);
+}
+
+.modal__close {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-ink);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background var(--transition-fast);
+}
+
+.modal__close:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Celebration Animation */
+.celebration {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+.celebration[hidden] {
+    display: none;
+}
+
+.celebration__content {
+    text-align: center;
+    animation: celebrationPop 0.6s ease-out;
+}
+
+.celebration__stars {
+    font-size: 3rem;
+    animation: starSpin 1s ease-in-out;
+}
+
+.celebration__text {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--color-gold-light);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: var(--space-md);
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes celebrationPop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes starSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Utility Classes */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+    }
+
+    .main {
+        padding: var(--space-md);
+    }
+
+    .collection-toggle__text {
+        display: none;
+    }
+
+    .modal__content {
+        padding: var(--space-md);
+    }
+}

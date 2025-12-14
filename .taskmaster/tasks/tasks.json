@@ -1,0 +1,156 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": "1",
+        "title": "Project Setup and Foundation",
+        "description": "Initialize project structure, HTML boilerplate, and folder organization for the Australian Animal Adventure game",
+        "details": "Create the complete folder structure as specified in the PRD: animal-adventure-game/ with css/, js/, data/, images/, audio/ subdirectories. Set up index.html with basic HTML5 boilerplate, meta tags for responsive design, and container divs for map, modal, and collection gallery. Include CDN links for any required libraries. Create empty placeholder files for all CSS and JS modules to establish the architecture.",
+        "testStrategy": "Verify all folders exist, index.html loads without errors, and file structure matches PRD specification exactly. Test that the page displays properly in browser with no console errors.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-14T17:22:03.689Z"
+      },
+      {
+        "id": "2",
+        "title": "Animal Data Schema and JSON Structure",
+        "description": "Design and implement the complete animal data schema with all 20 Australian animals and dinosaurs",
+        "details": "Create animals.json following the exact data model from PRD. Include all 20 animals: 10 deadly/dangerous Australian animals and 10 Australian dinosaurs. Each animal object must have: id, name, type, category, habitat, rarity, position {x,y}, image path, stats {size, speed, dangerLevel}, facts array, and speechPractice object with hasGKSound, phonetic, targetSound, and tip. Ensure G/K sound animals are properly flagged for speech practice mode.",
+        "testStrategy": "Validate JSON syntax, verify all 20 animals are present with complete data, confirm G/K sound detection works for specified animals (Crocodile, Shark, Kangaroo, etc.), and test that habitat field correctly distinguishes land vs sea animals.",
+        "priority": "high",
+        "dependencies": [
+          "1"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-14T17:23:14.858Z"
+      },
+      {
+        "id": "3",
+        "title": "Source and Process Animal Images",
+        "description": "Source high-quality CC0/CC-BY images for all 20 animals from Wikimedia Commons and process them for web use",
+        "details": "Search Wikimedia Commons for each of the 20 animals listed in the PRD. Download highest quality versions available. Process images to 400x400px for card display, compress for web using WebP format with JPG fallback. Organize in images/animals/ directory with consistent naming matching the animal IDs in JSON. Ensure all images are properly licensed (CC0 or CC-BY) and document sources.",
+        "testStrategy": "Verify all 20 animal images exist in correct directory, images load properly in browser, file sizes are optimized for web (<100KB each), and image quality is suitable for Pokemon-style cards. Test WebP support with JPG fallback.",
+        "priority": "high",
+        "dependencies": [
+          "2"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-14T17:24:03.973Z"
+      },
+      {
+        "id": "4",
+        "title": "Australia Map Asset and Base Styling",
+        "description": "Create or source Australia SVG map and implement treasure-map aesthetic styling",
+        "details": "Source or create an SVG map of Australia suitable for treasure-map styling. Implement CSS for treasure-map aesthetic with aged paper texture, decorative borders, and adventure-themed colors. Create responsive layout that works on desktop and mobile. Set up CSS custom properties for consistent theming. Ensure map is properly sized and positioned within the container.",
+        "testStrategy": "Verify Australia map displays correctly, treasure-map styling is visually appealing, map is responsive across different screen sizes, and SVG scales without quality loss. Test on mobile devices for proper touch interaction.",
+        "priority": "medium",
+        "dependencies": [
+          "1"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-14T17:24:03.974Z"
+      },
+      {
+        "id": "5",
+        "title": "Interactive Map System with Marker Placement",
+        "description": "Implement map rendering, marker placement system with land/sea logic, and click interactions",
+        "details": "Create map.js module with initMap(), placeMarkers(), and onMarkerClick() functions. Implement logic to place animal markers at correct geographic positions from animals.json. Enforce critical land/sea placement rules - land animals only on land, sea animals only in ocean areas. Add visual feedback on hover/tap (marker grows, glows, or bounces). Create marker SVG assets with treasure-map styling.",
+        "testStrategy": "Verify all 20 markers appear at correct positions, land animals are not placed in ocean areas, sea animals are not on land, hover/tap effects work smoothly, and click events fire correctly. Test on both desktop and mobile devices.",
+        "priority": "high",
+        "dependencies": [
+          "2",
+          "4"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-14T17:24:23.029Z"
+      },
+      {
+        "id": "6",
+        "title": "Pokemon-Style Animal Cards System",
+        "description": "Create modal system with Pokemon-card styling for animal discovery cards",
+        "details": "Implement cards.js module with showCard() and hideCard() functions. Create Pokemon-card-style modal HTML/CSS with real animal photos, name, type, habitat, stats (size, speed, danger level), and 2-3 fun facts. Implement rarity system (Common, Uncommon, Rare, Legendary) with visual indicators like colored borders and sparkle effects. Add smooth open/close animations and responsive design for mobile.",
+        "testStrategy": "Verify cards display correctly for all 20 animals, rarity borders show proper colors, all animal data renders correctly, modal opens/closes smoothly, animations work without lag, and cards are fully responsive on mobile devices.",
+        "priority": "high",
+        "dependencies": [
+          "3",
+          "5"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-14T17:24:23.030Z"
+      },
+      {
+        "id": "7",
+        "title": "Collection System with Local Storage",
+        "description": "Implement persistent collection system using localStorage with progress tracking and celebration animations",
+        "details": "Create collection.js module with collectAnimal(), isCollected(), getCollection(), and getProgress() functions. Implement localStorage persistence for collected animals. Add 'Collect' button to animal cards with celebration animation on new discoveries. Create collection gallery view showing all discovered animals with visual distinction between collected and undiscovered. Add progress indicator showing 'X/20 Discovered!' format.",
+        "testStrategy": "Verify collection persists after page refresh, progress counter updates correctly, celebration animations play on new discoveries, collection gallery displays properly, and localStorage handles edge cases gracefully (disabled storage, quota exceeded).",
+        "priority": "medium",
+        "dependencies": [
+          "6"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-14T17:24:23.030Z"
+      },
+      {
+        "id": "8",
+        "title": "Text-to-Speech Integration",
+        "description": "Implement Web Speech API for reading animal names and facts aloud with visual feedback",
+        "details": "Create speech.js module using Web Speech API with speakText(), stopSpeaking(), and isSpeaking() functions. Add 'Read to me' button to animal cards that reads animal name and fun facts aloud. Implement visual indicator (pulsing speaker icon) while speaking. Handle browser compatibility gracefully - hide button if TTS not supported. Prepare architecture for future ElevenLabs integration if needed.",
+        "testStrategy": "Verify TTS works in Chrome, Safari, and Firefox, speech stops when modal closes, visual indicators work correctly, graceful fallback when TTS unavailable, and audio quality is clear and appropriate for children.",
+        "priority": "medium",
+        "dependencies": [
+          "6"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-14T17:24:23.031Z"
+      },
+      {
+        "id": "9",
+        "title": "Speech Practice Mode for G/K Sounds",
+        "description": "Implement speech practice features highlighting G/K sound animals with phonetic guidance",
+        "details": "Extend speech.js to detect animals with G/K sounds using hasGKSound field from animals.json. Add visual highlighting for these animals on map (special badge or different marker color). Create 'Practice saying it!' UI with phonetic breakdown, visual cues for G/K sounds (different color, larger font), and encouraging feedback. Display pronunciation tips from speechPractice.tip field. Make practice mode optional and engaging, not homework-like.",
+        "testStrategy": "Verify G/K animals are correctly identified and highlighted, phonetic breakdowns display properly, visual cues are clear and helpful, encouraging feedback appears, and practice mode feels fun rather than educational pressure.",
+        "priority": "medium",
+        "dependencies": [
+          "8"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-14T17:24:23.031Z"
+      },
+      {
+        "id": "10",
+        "title": "Print Mode and Final Polish",
+        "description": "Implement print-friendly layouts, final visual polish, testing, and GitHub Pages deployment",
+        "details": "Create print.css with high-contrast, print-friendly map view and printable fact cards sized for cutting out. Add 'Print Map' and 'Print Cards' buttons that trigger browser print dialog with optimized layouts. Ensure markers on printed map match card references. Perform comprehensive testing across devices and browsers. Add final visual polish, smooth animations, and deploy to GitHub Pages for family access.",
+        "testStrategy": "Verify print layouts work on A4/Letter paper, fact cards have proper cut guides, print mode hides UI chrome correctly, all features work across target browsers and devices, and deployed site is accessible via GitHub Pages URL. Test with actual children (Reuben and Jesse) for usability validation.",
+        "priority": "low",
+        "dependencies": [
+          "7",
+          "9"
+        ],
+        "status": "done",
+        "subtasks": [],
+        "updatedAt": "2025-12-14T17:24:23.032Z"
+      }
+    ],
+    "metadata": {
+      "version": "1.0.0",
+      "lastModified": "2025-12-14T17:24:23.032Z",
+      "taskCount": 10,
+      "completedCount": 10,
+      "tags": [
+        "master"
+      ]
+    }
+  }
+}

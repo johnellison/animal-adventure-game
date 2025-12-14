@@ -1,0 +1,275 @@
+/* ========================================
+   Pokemon-Style Card Styles
+   ======================================== */
+
+.card {
+    width: 100%;
+    max-width: 380px;
+    background: linear-gradient(
+        145deg,
+        var(--color-parchment) 0%,
+        var(--color-parchment-dark) 100%
+    );
+    border: 6px solid var(--color-ink);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+/* Rarity-based card borders */
+.card--common {
+    border-color: var(--rarity-common);
+}
+
+.card--uncommon {
+    border-color: var(--rarity-uncommon);
+}
+
+.card--rare {
+    border-color: var(--rarity-rare);
+    box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+}
+
+.card--legendary {
+    border-color: var(--rarity-legendary);
+    box-shadow: 0 0 30px rgba(243, 156, 18, 0.4);
+    animation: legendaryCardGlow 3s infinite;
+}
+
+@keyframes legendaryCardGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(243, 156, 18, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(243, 156, 18, 0.6);
+    }
+}
+
+/* Card Header */
+.card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-ink);
+    color: var(--color-parchment);
+}
+
+.card__rarity {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+}
+
+.card__rarity--common { background: var(--rarity-common); }
+.card__rarity--uncommon { background: var(--rarity-uncommon); }
+.card__rarity--rare { background: var(--rarity-rare); }
+.card__rarity--legendary {
+    background: linear-gradient(90deg, var(--rarity-legendary), #e74c3c, var(--rarity-legendary));
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+.card__type {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Card Image */
+.card__image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(
+        180deg,
+        var(--color-parchment-dark) 0%,
+        var(--color-parchment) 100%
+    );
+    border-top: 3px solid var(--color-ink);
+    border-bottom: 3px solid var(--color-ink);
+    overflow: hidden;
+}
+
+.card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.card__image-container:hover .card__image {
+    transform: scale(1.05);
+}
+
+/* Card Name */
+.card__name {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    text-align: center;
+    padding: var(--space-md);
+    color: var(--color-ink);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Stats */
+.card__stats {
+    padding: 0 var(--space-md) var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.stat__label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    min-width: 60px;
+    color: var(--color-ink-light);
+}
+
+.stat__bar {
+    flex: 1;
+    height: 12px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.stat__fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-success) 0%, var(--color-gold) 100%);
+    border-radius: var(--radius-sm);
+    transition: width var(--transition-slow);
+}
+
+.stat__fill--danger {
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-danger) 100%);
+}
+
+/* Habitat */
+.card__habitat {
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.card__habitat-label {
+    font-weight: 600;
+    color: var(--color-ink-light);
+}
+
+.card__habitat-value {
+    color: var(--color-ink);
+}
+
+/* Facts */
+.card__facts {
+    padding: var(--space-md);
+}
+
+.card__facts-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-ink);
+}
+
+.card__facts-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.card__facts-list li {
+    position: relative;
+    padding-left: var(--space-lg);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.card__facts-list li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+    font-weight: bold;
+}
+
+/* Actions */
+.card__actions {
+    display: flex;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    border-top: 2px dashed var(--color-ink-light);
+}
+
+.card__actions .btn {
+    flex: 1;
+    justify-content: center;
+}
+
+/* Speech Practice Section */
+.speech-practice {
+    padding: var(--space-md);
+    background: linear-gradient(
+        135deg,
+        rgba(39, 174, 96, 0.1) 0%,
+        rgba(39, 174, 96, 0.2) 100%
+    );
+    border-top: 2px solid var(--color-success);
+    text-align: center;
+}
+
+.speech-practice__title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--color-success);
+    margin-bottom: var(--space-sm);
+}
+
+.speech-practice__phonetic {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: var(--space-sm);
+}
+
+.speech-practice__phonetic .highlight {
+    color: var(--color-success);
+    font-size: 1.75rem;
+    text-decoration: underline;
+}
+
+.speech-practice__tip {
+    font-size: 0.9rem;
+    color: var(--color-ink-light);
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .card {
+        border-width: 4px;
+    }
+
+    .card__name {
+        font-size: 1.5rem;
+    }
+
+    .card__actions {
+        flex-direction: column;
+    }
+}

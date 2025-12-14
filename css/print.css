@@ -1,0 +1,178 @@
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+    /* Reset for print */
+    * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Hide non-printable elements */
+    .header,
+    .collection-toggle,
+    .modal__overlay,
+    .modal__close,
+    .btn--speak,
+    .btn--collect,
+    .celebration,
+    .gallery__controls,
+    .card__actions {
+        display: none !important;
+    }
+
+    /* Page setup */
+    @page {
+        size: A4;
+        margin: 1cm;
+    }
+
+    /* Map print view */
+    .map-container {
+        border: 2px solid black;
+        padding: 0.5cm;
+        page-break-after: always;
+    }
+
+    .australia-map {
+        background: white !important;
+    }
+
+    .marker {
+        width: 24px;
+        height: 24px;
+    }
+
+    .marker__icon {
+        border: 2px solid black;
+        font-size: 0.8rem;
+    }
+
+    /* Cards print layout - for cutting */
+    .print-cards-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5cm;
+    }
+
+    .card {
+        border: 2px solid black;
+        page-break-inside: avoid;
+        max-width: none;
+    }
+
+    .card__image-container {
+        height: 150px;
+    }
+
+    .card__image {
+        filter: grayscale(0%);
+    }
+
+    .card__name {
+        font-size: 1.25rem;
+    }
+
+    .card__stats {
+        font-size: 0.75rem;
+    }
+
+    .stat__bar {
+        border: 1px solid black;
+    }
+
+    .stat__fill {
+        background: #333 !important;
+    }
+
+    .card__facts-list li {
+        font-size: 0.7rem;
+    }
+
+    /* Cut guides */
+    .print-cut-guide {
+        position: relative;
+    }
+
+    .print-cut-guide::before,
+    .print-cut-guide::after {
+        content: '';
+        position: absolute;
+        background: black;
+    }
+
+    .print-cut-guide::before {
+        top: -0.25cm;
+        left: 50%;
+        width: 1px;
+        height: 0.25cm;
+    }
+
+    .print-cut-guide::after {
+        left: -0.25cm;
+        top: 50%;
+        width: 0.25cm;
+        height: 1px;
+    }
+
+    /* Gallery print view */
+    .gallery {
+        padding: 0 !important;
+    }
+
+    .gallery__grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.25cm;
+    }
+
+    .collection-item {
+        border: 1px solid black;
+        aspect-ratio: 1;
+    }
+
+    .collection-item__name {
+        background: white !important;
+        color: black !important;
+        border-top: 1px solid black;
+    }
+
+    /* Modal handling for print */
+    .modal {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .modal__content {
+        position: static;
+        max-width: none;
+        max-height: none;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+    }
+
+    /* Links */
+    a[href]::after {
+        content: none;
+    }
+}
+
+/* Print-specific utility class for triggering print mode */
+.print-mode .main {
+    display: none;
+}
+
+.print-mode .modal {
+    position: static;
+    display: block;
+}
+
+.print-mode .modal__overlay {
+    display: none;
+}
