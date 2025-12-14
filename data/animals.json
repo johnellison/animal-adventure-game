@@ -7,7 +7,7 @@
     "habitat": "land",
     "rarity": "rare",
     "position": {
-      "x": 28,
+      "x": 38,
       "y": 25
     },
     "image": "images/animals/saltwater-crocodile.svg",
@@ -36,8 +36,8 @@
     "habitat": "sea",
     "rarity": "legendary",
     "position": {
-      "x": 75,
-      "y": 70
+      "x": 85,
+      "y": 75
     },
     "image": "images/animals/great-white-shark.jpg",
     "stats": {
@@ -65,8 +65,8 @@
     "habitat": "land",
     "rarity": "uncommon",
     "position": {
-      "x": 70,
-      "y": 48
+      "x": 65,
+      "y": 52
     },
     "image": "images/animals/eastern-brown-snake.jpg",
     "stats": {
@@ -94,8 +94,8 @@
     "habitat": "land",
     "rarity": "rare",
     "position": {
-      "x": 72,
-      "y": 55
+      "x": 68,
+      "y": 58
     },
     "image": "images/animals/sydney-funnel-web.jpg",
     "stats": {
@@ -123,8 +123,8 @@
     "habitat": "sea",
     "rarity": "uncommon",
     "position": {
-      "x": 35,
-      "y": 22
+      "x": 25,
+      "y": 8
     },
     "image": "images/animals/box-jellyfish.jpg",
     "stats": {
@@ -152,8 +152,8 @@
     "habitat": "sea",
     "rarity": "legendary",
     "position": {
-      "x": 50,
-      "y": 70
+      "x": 45,
+      "y": 85
     },
     "image": "images/animals/blue-ringed-octopus.svg",
     "stats": {
@@ -181,7 +181,7 @@
     "habitat": "land",
     "rarity": "common",
     "position": {
-      "x": 45,
+      "x": 48,
       "y": 45
     },
     "image": "images/animals/red-kangaroo.jpg",
@@ -210,8 +210,8 @@
     "habitat": "land",
     "rarity": "rare",
     "position": {
-      "x": 42,
-      "y": 18
+      "x": 48,
+      "y": 22
     },
     "image": "images/animals/cassowary.jpg",
     "stats": {
@@ -239,8 +239,8 @@
     "habitat": "land",
     "rarity": "uncommon",
     "position": {
-      "x": 68,
-      "y": 62
+      "x": 62,
+      "y": 60
     },
     "image": "images/animals/platypus.jpg",
     "stats": {
@@ -268,8 +268,8 @@
     "habitat": "land",
     "rarity": "common",
     "position": {
-      "x": 52,
-      "y": 35
+      "x": 45,
+      "y": 38
     },
     "image": "images/animals/dingo.jpg",
     "stats": {
@@ -298,7 +298,7 @@
     "rarity": "rare",
     "position": {
       "x": 55,
-      "y": 28
+      "y": 32
     },
     "image": "images/animals/muttaburrasaurus.jpg",
     "stats": {
@@ -326,8 +326,8 @@
     "habitat": "land",
     "rarity": "legendary",
     "position": {
-      "x": 48,
-      "y": 38
+      "x": 50,
+      "y": 40
     },
     "image": "images/animals/australovenator.jpg",
     "stats": {
@@ -356,7 +356,7 @@
     "rarity": "rare",
     "position": {
       "x": 52,
-      "y": 32
+      "y": 35
     },
     "image": "images/animals/diamantinasaurus.svg",
     "stats": {
@@ -384,8 +384,8 @@
     "habitat": "land",
     "rarity": "uncommon",
     "position": {
-      "x": 40,
-      "y": 25
+      "x": 45,
+      "y": 28
     },
     "image": "images/animals/kunbarrasaurus.svg",
     "stats": {
@@ -414,7 +414,7 @@
     "rarity": "uncommon",
     "position": {
       "x": 60,
-      "y": 68
+      "y": 62
     },
     "image": "images/animals/leaellynasaura.jpg",
     "stats": {
@@ -442,7 +442,7 @@
     "habitat": "sea",
     "rarity": "legendary",
     "position": {
-      "x": 25,
+      "x": 10,
       "y": 45
     },
     "image": "images/animals/kronosaurus.jpg",
@@ -472,7 +472,7 @@
     "rarity": "common",
     "position": {
       "x": 58,
-      "y": 35
+      "y": 38
     },
     "image": "images/animals/minmi.svg",
     "stats": {
@@ -500,8 +500,8 @@
     "habitat": "land",
     "rarity": "common",
     "position": {
-      "x": 22,
-      "y": 52
+      "x": 32,
+      "y": 50
     },
     "image": "images/animals/ozraptor.svg",
     "stats": {
@@ -530,7 +530,7 @@
     "rarity": "uncommon",
     "position": {
       "x": 62,
-      "y": 72
+      "y": 58
     },
     "image": "images/animals/qantassaurus.svg",
     "stats": {
@@ -558,8 +558,8 @@
     "habitat": "sea",
     "rarity": "rare",
     "position": {
-      "x": 82,
-      "y": 55
+      "x": 90,
+      "y": 50
     },
     "image": "images/animals/woolungasaurus.svg",
     "stats": {
