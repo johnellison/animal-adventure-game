@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0d1d30"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <circle cx="200" cy="160" r="80" fill="rgba(255,255,255,0.2)"/>
+  <text x="200" y="185" font-size="100" text-anchor="middle">🦈</text>
+  <rect x="40" y="300" width="320" height="55" rx="10" fill="rgba(0,0,0,0.7)"/>
+  <text x="200" y="338" font-family="Georgia,serif" font-size="22" fill="white" text-anchor="middle">Great White Shark</text>
+</svg>

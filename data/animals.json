@@ -39,7 +39,7 @@
       "x": 75,
       "y": 70
     },
-    "image": "images/animals/great-white-shark.jpg",
+    "image": "images/animals/great-white-shark.svg",
     "stats": {
       "size": 9,
       "speed": 9,
@@ -97,7 +97,7 @@
       "x": 72,
       "y": 55
     },
-    "image": "images/animals/sydney-funnel-web.jpg",
+    "image": "images/animals/sydney-funnel-web.svg",
     "stats": {
       "size": 2,
       "speed": 4,
@@ -126,7 +126,7 @@
       "x": 35,
       "y": 22
     },
-    "image": "images/animals/box-jellyfish.jpg",
+    "image": "images/animals/box-jellyfish.svg",
     "stats": {
       "size": 3,
       "speed": 5,
@@ -155,7 +155,7 @@
       "x": 50,
       "y": 70
     },
-    "image": "images/animals/blue-ringed-octopus.jpg",
+    "image": "images/animals/blue-ringed-octopus.svg",
     "stats": {
       "size": 1,
       "speed": 3,
@@ -213,7 +213,7 @@
       "x": 42,
       "y": 18
     },
-    "image": "images/animals/cassowary.jpg",
+    "image": "images/animals/cassowary.svg",
     "stats": {
       "size": 6,
       "speed": 7,
@@ -242,7 +242,7 @@
       "x": 68,
       "y": 62
     },
-    "image": "images/animals/platypus.jpg",
+    "image": "images/animals/platypus.svg",
     "stats": {
       "size": 2,
       "speed": 4,
@@ -271,7 +271,7 @@
       "x": 52,
       "y": 35
     },
-    "image": "images/animals/dingo.jpg",
+    "image": "images/animals/dingo.svg",
     "stats": {
       "size": 5,
       "speed": 7,
@@ -416,7 +416,7 @@
       "x": 60,
       "y": 68
     },
-    "image": "images/animals/leaellynasaura.jpg",
+    "image": "images/animals/leaellynasaura.svg",
     "stats": {
       "size": 2,
       "speed": 7,
@@ -445,7 +445,7 @@
       "x": 25,
       "y": 45
     },
-    "image": "images/animals/kronosaurus.jpg",
+    "image": "images/animals/kronosaurus.svg",
     "stats": {
       "size": 10,
       "speed": 8,
@@ -503,7 +503,7 @@
       "x": 22,
       "y": 52
     },
-    "image": "images/animals/ozraptor.jpg",
+    "image": "images/animals/ozraptor.svg",
     "stats": {
       "size": 4,
       "speed": 8,
@@ -561,7 +561,7 @@
       "x": 82,
       "y": 55
     },
-    "image": "images/animals/woolungasaurus.jpg",
+    "image": "images/animals/woolungasaurus.svg",
     "stats": {
       "size": 8,
       "speed": 6,
